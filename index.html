@@ -18,11 +18,59 @@
 
         <!-- Markov Chain script -->
         <script type="text/javascript" src="markov.js"></script>
+
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="uk-animation-fade uk-heading-medium">
-            Stormlight Archive Name Generator
+        <div class="uk-container">
+            <div class="uk-animation-fade uk-heading-medium">
+                Stormlight <br> Archive <br> Name Generator
+            </div>
+            <form class="uk-form-stacked" onsubmit="generate(); return false">
+                <div class="uk-form-controls">
+                    <div class="uk-button-group">
+                        <label class="uk-button uk-button-default">
+                            <input class="uk-radio"  type="radio" name="ethnic" value="alethi" checked>
+                            Alethi 
+                        </label>
+                        <label class="uk-button uk-button-default">
+                            <input class="uk-radio" type="radio" name="ethnic" value="singers">
+                            Singers 
+                        </label>
+                        <label class="uk-button uk-button-default">
+                            <input class="uk-radio" type="radio" name="ethnic" value="veden"> 
+                            Veden 
+                        </label>
+                        <label class="uk-button uk-button-default">
+                            <input class="uk-radio" type="radio" name="ethnic" value="thaylen">
+                            Thaylen 
+                        </label>
+                    </div>
+                </div>
+                <div class="uk-form-controls">
+                    <label class="uk-button uk-button-default">
+                        <input class="uk-radio" type="radio" name="gender" value="male" checked> 
+                        Male 
+                    </label>
+                    <label class="uk-button uk-button-default">
+                        <input class="uk-radio" type="radio" name="gender" value="female"> 
+                        Female 
+                    </label>
+                </div>
+                <div class="uk-form-controls">
+                    <label class="uk-button uk-button-default">
+                        <input class="uk-radio" type="radio" name="glyph" value="true" checked    > 
+                        Glyph 
+                    </label>
+                    <label class="uk-button uk-button-default">
+                        <input class="uk-radio" type="radio" name="glyph" value="false"> 
+                        No glyph 
+                    </label>
+                    
+                </div>
+                <div id="result"></div>
+                <button type="submit" class="uk-button uk-button-primary">Generate</button>
+            </form>
         </div>
-        <button class="uk-button uk-button-default" onclick="generate()">Generate</button>
     </body>
 </html>
