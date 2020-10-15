@@ -57,3 +57,19 @@ select::-ms-expand {
 #submit {
     background-color: #a76571;
 }
+
+footer {
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    padding-right: 10px;
+    font-weight: 450;
+    font-size: 0.9em;
+    color: black;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
