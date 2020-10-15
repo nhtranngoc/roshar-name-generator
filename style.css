@@ -24,13 +24,22 @@
     position: relative;
 }
 
-#banner, label, #result {
+#banner, #result, .uk-input, .uk-select, .uk-textarea {
     color: #1a1a50;
+    font-family: 'Roboto', sans-serif;
+}
+
+#banner {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .uk-select {
     font-size: 1.1em;
     background-color: transparent;
+}
+
+.uk-select:not([multiple]):not([size]) {
+    background-image: none;
 }
 
 select {
@@ -43,4 +52,8 @@ select {
 
 select::-ms-expand {
     display: none;
+}
+
+#submit {
+    background-color: #a76571;
 }
