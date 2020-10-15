@@ -31,11 +31,13 @@
 
 #banner {
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2em;
 }
 
 .uk-select {
     font-size: 1.1em;
     background-color: transparent;
+    box-
 }
 
 .uk-select:not([multiple]):not([size]) {
@@ -48,14 +50,11 @@ select {
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.12);
 }
 
 select::-ms-expand {
     display: none;
-}
-
-#submit {
-    background-color: #a76571;
 }
 
 footer {
@@ -72,4 +71,22 @@ footer {
 a {
     font-family: 'Roboto', sans-serif;
     color: black;
+}
+
+#submit {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    transition: background 400ms;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    outline: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+    background-color: #a76571;
+}
+
+#submit:hover {
+    background-color: #7c3d49;
 }
