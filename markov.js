@@ -1,4 +1,4 @@
-names = {
+const names = {
     "alethi": {
         "male":[
             "Abry",
@@ -196,51 +196,6 @@ names = {
             "Sebarial",
             "Shulin",
             "Vamah"
-        ],
-        "glyph": [
-            "jeseh",
-            "nan",
-            "chach",
-            "vev",
-            "palah",
-            "shash",
-            "beteb",
-            "kak",
-            "tanat",
-            "ishi",
-            "abara",
-            "adoda",
-            "amaya",
-            "bakhash",
-            "gesheh",
-            "idi",
-            "javani",
-            "kadulek",
-            "kalak",
-            "katef",
-            "kecheh",
-            "khakh",
-            "khohk",
-            "markhazh",
-            "laial",
-            "lerel",
-            "linil",
-            "mehlak",
-            "merem",
-            "mevizh",
-            "morom",
-            "nahn",
-            "parap",
-            "sas",
-            "sebes",
-            "shash",
-            "shenesh",
-            "tafar",
-            "tebel",
-            "thath",
-            "tsameth",
-            "zatalef",
-            "zeras"
         ]
     },
     "singers": {
@@ -370,7 +325,52 @@ names = {
             "Kmakra",
             "Rysn"
         ]
-    }
+    },
+    "glyph": [
+        "jeseh",
+        "nan",
+        "chach",
+        "vev",
+        "palah",
+        "shash",
+        "beteb",
+        "kak",
+        "tanat",
+        "ishi",
+        "abara",
+        "adoda",
+        "amaya",
+        "bakhash",
+        "gesheh",
+        "idi",
+        "javani",
+        "kadulek",
+        "kalak",
+        "katef",
+        "kecheh",
+        "khakh",
+        "khohk",
+        "markhazh",
+        "laial",
+        "lerel",
+        "linil",
+        "mehlak",
+        "merem",
+        "mevizh",
+        "morom",
+        "nahn",
+        "parap",
+        "sas",
+        "sebes",
+        "shash",
+        "shenesh",
+        "tafar",
+        "tebel",
+        "thath",
+        "tsameth",
+        "zatalef",
+        "zeras"
+    ]
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -440,15 +440,12 @@ function markov(corpus, chain) {
 
 }
 var serialize = function (form) {
-
 	// Setup our serialized data
 	var serialized = {};
 
 	// Loop through each field in the form
 	for (var i = 0; i < form.elements.length; i++) {
-
 		var field = form.elements[i];
-
 		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
 		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
 
@@ -467,22 +464,33 @@ var serialize = function (form) {
 	}
 
 	return serialized;
-
 };
 
 function generate() {
     let form = document.querySelector('form');
 
-    console.log(serialize(form));
+    let options = serialize(form);
 
-    let search = names.alethi.glyph.concat(names.alethi.male);
-    let corpus = generate_corpus(search);
+    let name_list = [];
+
+    if (options.gender === "both") {
+        name_list = name_list.concat(names[options.ethnic]['male'], names[options.ethnic]['female']);
+    } else {
+        name_list = name_list.concat(names[options.ethnic][options.gender]);
+    }
+
+    if ((options.ethnic === "alethi" || options.ethnic === "veden") && options.glyph === "true") {
+        name_list = name_list.concat(names['glyph']);
+    }
+
+    console.log(name_list);
+
+    let corpus = generate_corpus(name_list);
     let chain = generate_chain(corpus);
     let name = markov(corpus, chain);
 
-    console.log(name);
     document.getElementById("result").innerHTML = name;
-    if (search.includes(name)) {
+    if (name_list.includes(name)) {
         console.log("Hey this is in the book!");
     }
 }
