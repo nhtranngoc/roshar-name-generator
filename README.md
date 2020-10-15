@@ -1,4 +1,4 @@
-# roshar-name-generator
+# Roshar Name Generator
 
 ![Screenshot](https://raw.githubusercontent.com/nhtranngoc/roshar-name-generator/main/screenshot.PNG)
 
