@@ -27,3 +27,20 @@
 #banner, label, #result {
     color: #1a1a50;
 }
+
+.uk-select {
+    font-size: 1.1em;
+    background-color: transparent;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+select::-ms-expand {
+    display: none;
+}

@@ -495,13 +495,9 @@ function generate() {
 }
 
 function disableGlyph(event) {
-    let radios = document.form.glyph;
-
-    radios.forEach((el, i) => {
-        if(event.value === "singers" || event.value === "thaylen") {
-            el.disabled = true;
-        } else {
-            el.disabled = false;
-        }
-    })
+    if(event.value === "singers" || event.value === "thaylen") {
+        document.getElementById('glyph').disabled = true;
+    } else {
+        document.getElementById('glyph').disabled = false;
+    }
 }

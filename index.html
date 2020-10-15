@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta name="description" content="A Stormlight Archive name generator. Powered by Markov Chain.">
-        <!-- <meta property="og:image" content="./ogimg.jpg" /> -->
-        <link rel="icon" href="favicon.ico">
-        <title>Stormlight Archive Name Generator</title>
-
-        <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/css/uikit.min.css" />
-
-        <!-- UIkit JS -->
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit-icons.min.js"></script>
-
-        <!-- Markov Chain script -->
-        <script type="text/javascript" src="markov.js"></script>
-
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="background">
-            <div class="uk-container uk-container-expand uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-animation-fade">
-                <div class="uk-heading-small uk-flex uk-flex-center" id="banner">
-                    Stormlight Archive Name Generator
-                </div>
-                <form class="uk-form-stacked uk-margin-medium uk-form-width-large" name="form" onsubmit="generate(); return false">
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <select class="uk-select" id="form-horizontal-select" name="ethnic">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="A Stormlight Archive name generator. Powered by Markov Chain.">
+    <!-- <meta property="og:image" content="./ogimg.jpg" /> -->
+    <link rel="icon" href="favicon.ico">
+    <title>Stormlight Archive Name Generator</title>
+    
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/css/uikit.min.css" />
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit-icons.min.js"></script>
+    
+    <!-- Markov Chain script -->
+    <script type="text/javascript" src="markov.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="uk-container uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-animation-fade">
+            <div class="uk-text-lead uk-flex uk-flex-center" id="banner">
+                STORMLIGHT ARCHIVE NAME GENERATOR
+            </div>
+            <form class="uk-form uk-margin-medium" name="form" onsubmit="generate(); return false">
+                <div class="uk-flex uk-flex-inline">
+                    <div class="uk-form-controls uk-padding-small">
+                        <select class="uk-select" name="ethnic" onchange="disableGlyph(this)">
                             <option value="alethi">Alethi</option>
                             <option value="singers">Singers</option>
                             <option value="veden">Veden</option>
                             <option value="thaylen">Thaylen</option>
                         </select>
                     </div>
-                </div>
-                
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <select class="uk-select" id="form-horizontal-select" name="gender">
+                    
+                    <div class="uk-form-controls uk-padding-small">
+                        <select class="uk-select" name="gender">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="both">Both</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <select class="uk-select" id="form-horizontal-select" name="glyph">
+                    
+                    <div class="uk-form-controls uk-padding-small">
+                        <select class="uk-select" id="glyph" name="glyph">
                             <option value="true">Glyph</option>
                             <option value="false">No glyph</option>
                         </select>
                     </div>
+                    
                 </div>
-
                 <hr>
-                <div class="uk-flex uk-flex-center uk-heading-small uk-margin uk-margin-medium" id="result">&nbsp;</div>
-                <button type="submit" class="uk-button uk-button-primary uk-width-1-1"><span uk-icon="icon: refresh; ratio: 0.75"> Generate </span></button>
+                <div class="uk-flex uk-flex-center uk-heading-medium uk-margin uk-margin-medium" id="result">&nbsp;</div>
+                <button type="submit" class="uk-button uk-button-primary uk-width-1-1"><span uk-icon="icon: refresh; ratio: 0.75"> GENERATE </span></button>
             </form>
         </div>
     </div>
-    </body>
-    </html>
+</body>
+</html>
