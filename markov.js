@@ -373,13 +373,6 @@ const names = {
     ]
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Create corpus
-    for(const key of Object.keys(names)) {
-        console.log(key)
-    }
-}, false);
-
 function generate_corpus(names) {
     let corpus = [];
 
@@ -445,7 +438,7 @@ var serialize = function (form) {
 
 	// Loop through each field in the form
 	for (var i = 0; i < form.elements.length; i++) {
-		var field = form.elements[i];
+        var field = form.elements[i];
 		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
 		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
 
@@ -466,31 +459,49 @@ var serialize = function (form) {
 	return serialized;
 };
 
-function generate() {
-    let form = document.querySelector('form');
-
+function parse(form) {
     let options = serialize(form);
-
     let name_list = [];
-
     if (options.gender === "both") {
         name_list = name_list.concat(names[options.ethnic]['male'], names[options.ethnic]['female']);
     } else {
         name_list = name_list.concat(names[options.ethnic][options.gender]);
     }
 
+    // Since Alethkar & Veden both follow Vorinism, we can assume that they follow a glyph-based naming convention.
     if ((options.ethnic === "alethi" || options.ethnic === "veden") && options.glyph === "true") {
         name_list = name_list.concat(names['glyph']);
     }
 
-    console.log(name_list);
+    return name_list;
+}
 
+function generate() {
+    // Parse form
+    let form = document.querySelector('form');
+    let name_list = parse(form);
+
+    // Markov stuff
     let corpus = generate_corpus(name_list);
     let chain = generate_chain(corpus);
     let name = markov(corpus, chain);
 
     document.getElementById("result").innerHTML = name;
+    
+    // Bonus!
     if (name_list.includes(name)) {
         console.log("Hey this is in the book!");
     }
+}
+
+function disableGlyph(event) {
+    let radios = document.form.glyph;
+
+    radios.forEach((el, i) => {
+        if(event.value === "singers" || event.value === "thaylen") {
+            el.disabled = true;
+        } else {
+            el.disabled = false;
+        }
+    })
 }

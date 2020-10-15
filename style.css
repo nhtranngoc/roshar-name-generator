@@ -1,16 +1,29 @@
-/* input[type="radio"] {
-    display: none;
+.background {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-label {
-    display: inline-block;
-    background-color: #ddd;
-    padding: 4px 11px;
-    font-family: Arial;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.background::before {
+    content: "";
+    background-image: url('https://images.unsplash.com/photo-1470115209269-18dd2d7285cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.65;
 
-input[type="radio"]:checked+label {
-    background-color: #f00;
-} */
+}
+
+.uk-container {
+    position: relative;
+}
+
+#banner, label, #result {
+    color: #1a1a50;
+}
