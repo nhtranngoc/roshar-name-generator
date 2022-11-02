@@ -123,6 +123,7 @@ const names = {
             "Shim",
             "Sidin",
             "Sidin",
+            "Skar",
             "Taka",
             "Talanan",
             "Talanor",
@@ -185,13 +186,17 @@ const names = {
             "Jayla",
             "Jenet",
             "Jevena",
+            "Kara",
             "Kusiri",
             "Lalai",
             "Laral",
+            "Laran",
             "Leven",
             "Litima",
             "Lyn",
             "Mara",
+            "Maratham",
+            "Mela",
             "Miasal",
             "Mishinah",
             "Muri",
@@ -442,7 +447,7 @@ const names = {
         "katef",
         "kecheh",
         "khakh",
-        "khohk",
+        "khokh",
         "laial",
         "lerel",
         "linil",
@@ -566,7 +571,7 @@ function parse(form) {
         name_list = name_list.concat(names[options.ethnic][options.gender]);
     }
 
-    // Since Alethkar & Veden both follow Vorinism, we can assume that they follow a glyph-based naming convention.
+    // Since Alethkar & Jah Keved both follow Vorinism, we can assume that they follow a glyph-based naming convention.
     if ((options.ethnic === "alethi" || options.ethnic === "veden") && options.glyph === "true") {
         name_list = name_list.concat(names['glyph']);
     }
@@ -585,7 +590,7 @@ function generate() {
     let name = markov(corpus, chain);
 
     document.getElementById("result").innerHTML = name;
-    
+
     // Bonus!
     if (name_list.includes(name)) {
         console.log("Hey this is in the book!");
